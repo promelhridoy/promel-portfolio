@@ -53,7 +53,7 @@ export function Projects() {
                   ))}
                 </div>
 
-                <div className="mt-6 flex items-center gap-3">
+                <div className="mt-6 flex-wrap flex items-center gap-3">
                   <Button size="sm" variant="outline" asChild>
                     <Link href={`/projects/${project.slug}`}>
                       Details <ArrowUpRight className="h-3.5 w-3.5" />

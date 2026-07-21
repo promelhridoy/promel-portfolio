@@ -31,7 +31,7 @@ export function Process() {
           {PROCESS_STEPS.map((step, index) => {
             const Icon = step.icon;
             return (
-              <motion.div key={step.id} variants={fadeUp} className="relative flex items-start gap-5 sm:gap-6">
+              <motion.div key={step.id} variants={fadeUp} className="relative flex gap-5 sm:gap-6">
                 <span className="glass relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full shadow-soft sm:h-14 sm:w-14">
                   <Icon className="h-5 w-5 text-accent sm:h-6 sm:w-6" />
                 </span>

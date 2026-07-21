@@ -62,7 +62,7 @@ export function Navbar() {
           <span className="text-primary"> /&gt;</span>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
           {NAV_LINKS.map((link) => {
             const isActive = activeId === link.href.replace("#", "");
             return (
@@ -90,7 +90,7 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden items-center gap-2 md:flex">
           <Button
             variant="ghost"
             size="icon"
@@ -111,7 +111,7 @@ export function Navbar() {
         </div>
 
         <button
-          className="rounded-lg p-2 lg:hidden"
+          className="rounded-lg p-2 md:hidden"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((v) => !v)}

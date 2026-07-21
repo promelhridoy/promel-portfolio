@@ -12,7 +12,7 @@ export function Footer() {
           <Link href="#home" className="font-mono text-xl font-semibold tracking-tight">
             <span className="text-primary">&lt;</span>PH<span className="text-primary"> /&gt;</span>
           </Link>
-          <p className="mt-4 max-w-xs text-sm text-muted">
+          <p className="mt-4 text-center md:text-left mx-auto md:mx-0 text-sm text-muted">
             MERN stack developer crafting fast, responsive, and well-structured
             web applications.
           </p>

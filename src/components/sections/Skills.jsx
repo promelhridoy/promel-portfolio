@@ -20,7 +20,7 @@ export function Skills() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.15 }}
-        className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
       >
         {SKILL_GROUPS.map((group) => {
           const Icon = group.icon;

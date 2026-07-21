@@ -67,15 +67,15 @@ export function Contact() {
           ].map(({ icon: Icon, label, value, href }) => (
             <Card key={label}>
               <CardContent className="flex items-center gap-4">
-                <span className="glass flex h-11 w-11 shrink-0 items-center justify-center rounded-full">
+                <span className="glass flex h-10 w-10 shrink-0 items-center justify-center rounded-full sm:h-11 sm:w-11">
                   <Icon className="h-4.5 w-4.5 text-accent" />
                 </span>
-                <div>
+                <div className="min-w-0 flex-1">
                   <p className="text-xs text-muted">{label}</p>
                   {href ? (
-                    <a href={href} className="font-medium hover:text-accent">{value}</a>
+                    <a href={href} className="font-medium break-all hover:text-accent">{value}</a>
                   ) : (
-                    <p className="font-medium">{value}</p>
+                    <p className="font-medium break-all">{value}</p>
                   )}
                 </div>
               </CardContent>

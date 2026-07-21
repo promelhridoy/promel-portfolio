@@ -21,7 +21,7 @@ export function Stats() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
-        className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5"
+        className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
       >
         {STATS.map((stat) => {
           const Icon = stat.icon;

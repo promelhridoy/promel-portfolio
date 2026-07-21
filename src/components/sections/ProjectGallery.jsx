@@ -13,7 +13,7 @@ export function ProjectGallery({ images, title }) {
   return (
     <div>
       <h2 className="font-display text-xl font-semibold">Screenshots</h2>
-      <div className="mt-4 grid grid-cols-2 gap-4">
+      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
         {images.map((src, index) => (
           <button
             key={src + index}
