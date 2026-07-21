@@ -125,49 +125,81 @@ export function Navbar() {
       </div>
 
       {mobileOpen && (
-        <motion.nav
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          className="section-container mt-2 lg:hidden"
-          aria-label="Mobile"
-        >
-          <div className="glass flex flex-col gap-1 rounded-2xl p-4 shadow-soft">
-            {NAV_LINKS.map((link) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="fixed inset-0 z-[999] bg-background/70 backdrop-blur-md md:hidden"
+  >
+    {/* Close button */}
+    <button
+      className="absolute right-6 top-6 rounded-lg p-2 text-foreground"
+      aria-label="Close menu"
+      onClick={() => setMobileOpen(false)}
+    >
+      <X className="h-7 w-7" />
+    </button>
+
+    {/* Menu */}
+    <motion.nav
+      initial={{ y: -30, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -30, opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      className="section-container mt-24"
+      aria-label="Mobile"
+    >
+      <div className="rounded-3xl border border-border bg-background p-6 shadow-2xl">
+        <div className="flex flex-col gap-2">
+          {NAV_LINKS.map((link) => {
+            const isActive = activeId === link.href.replace("#", "");
+
+            return (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="rounded-xl px-4 py-3 text-sm font-medium text-muted hover:bg-foreground/5 hover:text-foreground"
+                className={cn(
+                  "rounded-xl px-4 py-3 text-base font-medium transition-all",
+                  isActive
+                    ? "bg-primary text-white"
+                    : "text-muted hover:bg-foreground/5 hover:text-foreground"
+                )}
               >
                 {link.label}
               </a>
-            ))}
-            <div className="mt-2 flex items-center justify-between border-t border-border pt-4">
-              <button
-                onClick={() => setTheme(isDark ? "light" : "dark")}
-                className="flex items-center gap-2 text-sm text-muted"
-              >
-                {isDark ? (
-                  <Sun className="h-4 w-4" />
-                ) : (
-                  <Moon className="h-4 w-4" />
-                )}{" "}
-                Toggle theme
-              </button>
-              <a
-                href={RESUME_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                download="Promel_Hossain_Hridoy_Resume.pdf"
-                className="text-sm font-medium text-accent"
-              >
-                Download Resume
-              </a>
-            </div>
-          </div>
-        </motion.nav>
-      )}
+            );
+          })}
+        </div>
+
+        <div className="mt-6 flex items-center justify-between border-t border-border pt-5">
+          <button
+            onClick={() => setTheme(isDark ? "light" : "dark")}
+            className="flex items-center gap-2 text-sm font-medium text-muted hover:text-foreground"
+          >
+            {isDark ? (
+              <Sun className="h-4 w-4" />
+            ) : (
+              <Moon className="h-4 w-4" />
+            )}
+            Toggle Theme
+          </button>
+
+          <a
+            href={RESUME_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            download="Promel_Hossain_Hridoy_Resume.pdf"
+            className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
+          >
+            <Download className="h-4 w-4" />
+            Resume
+          </a>
+        </div>
+      </div>
+    </motion.nav>
+  </motion.div>
+)}
     </motion.header>
   );
 }
