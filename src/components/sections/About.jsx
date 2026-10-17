@@ -2,10 +2,24 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Target, Sparkles, MapPin, Mail, GraduationCap, Code2, Rocket, Users } from "lucide-react";
+import {
+  Target,
+  Sparkles,
+  MapPin,
+  Mail,
+  GraduationCap,
+  Code2,
+  Rocket,
+  Users,
+} from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { TiltCard } from "@/components/shared/TiltCard";
-import { fadeUp, slideInLeft, slideInRight, staggerContainer } from "@/lib/motion";
+import {
+  fadeUp,
+  slideInLeft,
+  slideInRight,
+  staggerContainer,
+} from "@/lib/motion";
 import { siteConfig } from "@/lib/metadata";
 
 const QUICK_FACTS = [
@@ -18,27 +32,30 @@ const HIGHLIGHTS = [
   {
     icon: Code2,
     title: "Clean Code",
-    description: "Readable, modular code that's easy for a team to build on.",
+    description:
+      "I write readable and modular code that is easy for teams to maintain and scale.",
   },
   {
     icon: Rocket,
     title: "Fast Learner",
-    description: "Picks up new tools and frameworks quickly, on my own.",
+    description:
+      "I quickly adapt to new tools and frameworks and apply them in real projects.",
   },
   {
     icon: Users,
-    title: "Team Player",
-    description: "Comfortable collaborating, taking feedback, and iterating.",
+    title: "Team Ready",
+    description:
+      "Comfortable collaborating, taking feedback, and improving through iteration.",
   },
 ];
 
 export function About() {
   return (
-    <section id="about" className="section-container py-20">
+    <section id="about" className="section-container relative z-10 py-20">
       <SectionHeading
         eyebrow="About Me"
-        title="Turning ideas into polished, production-ready products"
-        description="A quick look at who I am, what drives me, and where I'm headed."
+        title="Building clean, functional, and production-ready web applications"
+        description="A focused look at my background, mindset, and the value I bring as a developer."
       />
 
       <div className="grid gap-12 lg:grid-cols-[minmax(0,340px)_1fr] lg:items-start">
@@ -59,11 +76,12 @@ export function About() {
             <TiltCard className="relative">
               <div className="glass aspect-[4/5] w-full overflow-hidden rounded-[2rem] shadow-soft">
                 <Image
-                  src="/portfolio_photo.jpg"
+                  src="/promel-portfolio-portrait.png"
                   alt="Photo of Promel Hossain Hridoy"
                   fill
                   sizes="(max-width: 1024px) 320px, 340px"
                   className="object-cover"
+                  priority
                 />
               </div>
             </TiltCard>
@@ -72,11 +90,17 @@ export function About() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.5,
+                delay: 0.6,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               className="glass absolute -bottom-5 -right-5 flex items-center gap-2 rounded-2xl px-4 py-3 shadow-soft"
             >
               <Sparkles className="h-4 w-4 text-accent" />
-              <span className="text-sm font-medium text-foreground">Fresher &amp; eager to learn</span>
+              <span className="text-sm font-medium text-foreground">
+                Open to opportunities
+              </span>
             </motion.div>
           </motion.div>
 
@@ -89,7 +113,11 @@ export function About() {
             className="mt-16 space-y-3 sm:mt-8"
           >
             {QUICK_FACTS.map(({ icon: Icon, label }) => (
-              <motion.div key={label} variants={fadeUp} className="flex items-center gap-3 text-sm text-muted">
+              <motion.div
+                key={label}
+                variants={fadeUp}
+                className="flex items-center gap-3 text-sm text-muted"
+              >
                 <span className="glass flex h-8 w-8 shrink-0 items-center justify-center rounded-full">
                   <Icon className="h-3.5 w-3.5 text-accent" />
                 </span>
@@ -106,28 +134,40 @@ export function About() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
-            className="space-y-6 text-muted"
+            className="space-y-5 text-muted"
           >
             <p className="leading-relaxed">
-              I&apos;m a MERN stack developer just starting my professional journey,
-              focused on building clean, responsive interfaces with React and pairing
-              them with well-structured Node.js and Express REST APIs backed by
-              MongoDB.
+              I am a MERN stack developer focused on building clean, responsive,
+              and functional web applications. I work with React on the frontend
+              and Node.js with Express on the backend, using MongoDB for data
+              management.
             </p>
+
             <p className="leading-relaxed">
-              As a fresher, I&apos;m eager to learn fast, take on real-world challenges,
-              and grow into a well-rounded full-stack developer — while writing code
-              that&apos;s clean, readable, and easy for a team to build on.
+              Although I come from a Management background, I developed a strong
+              interest in software development and taught myself full-stack web
+              development through consistent practice and real projects. I enjoy
+              turning ideas into working products and continuously improving my
+              skills.
+            </p>
+
+            <p className="leading-relaxed">
+              I am currently looking for my first role as a junior or entry-level
+              MERN stack developer, where I can contribute, learn from
+              experienced engineers, and grow into a reliable full-stack
+              developer.
             </p>
 
             <div className="glass flex items-start gap-4 rounded-2xl p-5">
               <Target className="mt-1 h-5 w-5 shrink-0 text-accent" />
               <div>
-                <h3 className="font-display font-semibold text-foreground">Career Goal</h3>
+                <h3 className="font-display font-semibold text-foreground">
+                  Career Goal
+                </h3>
                 <p className="mt-1 text-sm leading-relaxed">
-                  Land my first role as a MERN stack developer where I can apply what
-                  I&apos;ve learned, work alongside experienced engineers, and steadily
-                  grow into a strong full-stack developer.
+                  Join a team where I can apply my current skills, take ownership
+                  of features, and steadily grow into a strong full-stack
+                  developer through real-world experience.
                 </p>
               </div>
             </div>
@@ -151,8 +191,12 @@ export function About() {
                 <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent">
                   <Icon className="h-4 w-4 text-white" />
                 </span>
-                <h4 className="mt-3 font-display text-sm font-semibold text-foreground">{title}</h4>
-                <p className="mt-1 text-xs leading-relaxed text-muted">{description}</p>
+                <h4 className="mt-3 font-display text-sm font-semibold text-foreground">
+                  {title}
+                </h4>
+                <p className="mt-1 text-xs leading-relaxed text-muted">
+                  {description}
+                </p>
               </motion.div>
             ))}
           </motion.div>

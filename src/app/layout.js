@@ -2,6 +2,7 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { SmoothScrollProvider } from "@/providers/SmoothScrollProvider";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
+import { PageBackground } from "@/components/shared/PageBackground"; // ← এই লাইন যোগ করো
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -44,7 +45,10 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         <ThemeProvider>
-          <SmoothScrollProvider>{children}</SmoothScrollProvider>
+          <SmoothScrollProvider>
+            <PageBackground />   {/* ← এখানে যোগ করো */}
+            {children}
+          </SmoothScrollProvider>
         </ThemeProvider>
       </body>
     </html>

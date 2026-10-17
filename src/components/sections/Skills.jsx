@@ -8,11 +8,11 @@ import { SKILL_GROUPS } from "@/data/skills";
 
 export function Skills() {
   return (
-    <section id="skills" className="section-container py-10">
+    <section id="skills" className="relative z-10 section-container py-10">
       <SectionHeading
         eyebrow="Skills"
         title="Technologies I work with"
-        description="The MERN stack tools and technologies I use to build web applications."
+        description="A modern TypeScript-first stack for building full-stack, AI-powered web applications."
       />
 
       <motion.div
@@ -20,7 +20,7 @@ export function Skills() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.15 }}
-        className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
       >
         {SKILL_GROUPS.map((group) => {
           const Icon = group.icon;
@@ -33,7 +33,9 @@ export function Skills() {
                   >
                     <Icon className="h-5 w-5 text-white" />
                   </span>
-                  <h3 className="font-display text-lg font-semibold">{group.category}</h3>
+                  <h3 className="font-display text-lg font-semibold">
+                    {group.category}
+                  </h3>
                 </CardHeader>
                 <CardContent className="flex flex-wrap gap-2">
                   {group.skills.map((skill) => (
